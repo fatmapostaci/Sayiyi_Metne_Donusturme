@@ -1,13 +1,22 @@
 
 public class MetneDonustur {
-    static int birler, onlar, yuzler,binler, onbinler, yuzbinler;
-    public static int kacBasamakli(String inputText){
+    static int birler, onlar, yuzler, binler, onbinler, yuzbinler, milyonlar;
+
+    public static int kacBasamakli(String inputText) {
 
         int basamakSayisi = inputText.length();
         int sayi = (int) Integer.parseInt(inputText);
+        birler = 0;
+        onlar = 0;
+        yuzler = 0;
+        binler = 0;
+        onbinler = 0;
+        yuzbinler = 0;
+        milyonlar = 0;
 
-
-        switch (basamakSayisi){
+        switch (basamakSayisi) {
+            case 7:
+                milyonlar = (sayi / 100000) % 10;
             case 6:
                 yuzbinler = (sayi / 100000) % 10;
             case 5:
@@ -22,17 +31,12 @@ public class MetneDonustur {
                 birler = sayi % 10;
                 break;
             default:
-                birler = 0;
-                onlar = 0;
-                yuzler = 0;
-                binler = 0;
-                onbinler = 0;
-                yuzbinler = 0;
                 break;
         }
         return sayi;
 
     }
+
     public static String metneDonustur(String inputText) {
 
         int sayi = kacBasamakli(inputText);
@@ -116,7 +120,20 @@ public class MetneDonustur {
             case 0 -> "";
             default -> "???";
         };
-        return " " + yuzbinlerS + " " + onbinlerS + " " + binlerS + " " + yuzlerS + " " + onlarS + " " + birlerS;
+        String milyonlarS = switch (milyonlar) {
+            case 1 -> "milyon";
+            case 2 -> "iki milyon";
+            case 3 -> "üç milyon";
+            case 4 -> "dört milyon";
+            case 5 -> "beş milyon";
+            case 6 -> "altı milyon";
+            case 7 -> "yedi milyon";
+            case 8 -> "sekiz milyon";
+            case 9 -> "dokuz milyon";
+            case 0 -> "";
+            default -> "???";
+        };
+        return " " + milyonlarS + " " + yuzbinlerS + " " + onbinlerS + " " + binlerS + " " + yuzlerS + " " + onlarS + " " + birlerS;
 
     }
 }
