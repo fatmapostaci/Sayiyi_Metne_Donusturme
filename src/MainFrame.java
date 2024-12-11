@@ -15,7 +15,7 @@ public class MainFrame extends JFrame {
 
     public MainFrame() {
         setTitle("Sayıyı Metne Dönüştürme");  //pencerenin başlık metni
-       setSize(600, 300);
+       setSize(600, 200);
       //  setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setLocationRelativeTo(null); // Pencereyi ekranın ortasına yerleştir
 
@@ -38,7 +38,7 @@ public class MainFrame extends JFrame {
         panel.add(btnDonustur); // Buton'u panele ekle
 
         // TextField (Metin Alanı)
-        txtWrittenValue = new JTextField(30); // 15 sütun genişlik
+        txtWrittenValue = new JTextField(30); // 30 sütun genişlik
         panel.add(txtWrittenValue);
 
 
